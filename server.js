@@ -33,12 +33,32 @@ const calculate = (operation, num1, num2) => {
       return num1 * num2;
     case "divide":
       return num2 !== 0 ? num1 / num2 : "Error: Division by zero";
+    case "power":
+      return Math.pow(num1, num2);
+    case "sqrt":
+      return num1 >= 0
+        ? Math.sqrt(num1)
+        : "Error: Negative number for square root";
+    case "mod":
+      return num2 !== 0 ? num1 % num2 : "Error modulo by zero";
     default:
       return "invalid Operation";
   }
 };
+app.get("/sqrt", (req, res) => {
+  const num1 = parseFloat(req.query.num1);
 
-["add", "subtract", "multiply", "divide"].forEach((op) => {
+  if (isNaN(num1)) {
+    logger.error(`Invalid input for sqrt: num1=${req.query.num1}`);
+    return res.status(400).json({ error: "Invalid number provided" });
+  }
+
+  const result = calculate("sqrt", num1);
+  logger.info(`Operation: sqrt, num1: ${num1}, result: ${result}`);
+  res.json({ operation: "sqrt", result });
+});
+
+["add", "subtract", "multiply", "divide", "power", "mod"].forEach((op) => {
   app.get(`/${op}`, (req, res) => {
     const num1 = parseFloat(req.query.num1);
     const num2 = parseFloat(req.query.num2);
@@ -56,6 +76,19 @@ const calculate = (operation, num1, num2) => {
     );
     res.json({ operation: op, result });
   });
+});
+
+app.get("/sqrt", (req, res) => {
+  const num1 = parseFloat(req.query.num1);
+
+  if (isNaN(num1)) {
+    logger.error(`Invalid input for square root: num1=${req.query.num1}`);
+    return res.status(400).json({ error: "Invalid number provided" });
+  }
+
+  const result = calculate("sqrt", num1);
+  logger.info(`Operation: sqrt, num1: &{num1}, result: ${result}`);
+  res.json({ operation: "sqrt", result });
 });
 
 app.listen(port, () => {
