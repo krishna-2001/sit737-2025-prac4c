@@ -3,3 +3,19 @@
 {"level":"info","message":"operation: &{op},num1: &{num1}, num2: &{num2}, result: 15"}
 {"level":"info","message":"calculator microservice running on http://localhost:&{port}"}
 {"level":"info","message":"operation: &{op},num1: &{num1}, num2: &{num2}, result: 5"}
+{"level":"info","message":"calculator microservice running on http://localhost:&{port}"}
+{"level":"info","message":"operation: &{op},num1: &{num1}, num2: &{num2}, result: 2"}
+{"level":"info","message":"operation: &{op},num1: &{num1}, num2: &{num2}, result: 15"}
+{"level":"info","message":"operation: &{op},num1: &{num1}, num2: &{num2}, result: 5"}
+{"level":"info","message":"operation: &{op},num1: &{num1}, num2: &{num2}, result: 50"}
+{"level":"info","message":"operation: &{op},num1: &{num1}, num2: &{num2}, result: 0"}
+{"level":"info","message":"operation: &{op},num1: &{num1}, num2: &{num2}, result: Error: Division by zero"}
+{"level":"error","message":"Invalid input: num1=undefined, num2=&{req.query.num2}"}
+{"level":"info","message":"calculator microservice running on http://localhost:&{port}"}
+{"level":"info","message":"calculator microservice running on http://localhost:&{port}"}
+{"level":"error","message":"Invalid input: num1=25, num2=&{req.query.num2}"}
+{"level":"error","message":"Invalid input: num1=25, num2=&{req.query.num2}"}
+{"level":"info","message":"calculator microservice running on http://localhost:&{port}"}
+{"level":"info","message":"Operation: sqrt, num1: 25, result: 5"}
+{"level":"info","message":"operation: &{op},num1: &{num1}, num2: &{num2}, result: 8"}
+{"level":"info","message":"operation: &{op},num1: &{num1}, num2: &{num2}, result: 1"}
